@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Boss
   - Deathtrap
+  - Gold
+  - Diamond
   layers:
   - Default
   - TransparentFX
