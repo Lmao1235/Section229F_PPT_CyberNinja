@@ -8,6 +8,8 @@ public class Movmement : MonoBehaviour
     Vector2 move;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float Jumpforce;
+
+    private bool DoubleJump;
     
     private bool grounded;
     private void Start()
@@ -19,10 +21,24 @@ public class Movmement : MonoBehaviour
     void Update()
     {
         move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if(Input.GetButtonDown("Jump") && grounded)
+
+        if (grounded && !Input.GetButton("Jump"))
         {
-            rb.AddForce(new Vector2(rb.velocity.x , Jumpforce));
+            DoubleJump = false;
         }
+
+        if(Input.GetButtonDown("Jump"))
+        {
+            if (grounded || DoubleJump)
+            {
+                rb.AddForce(new Vector2(rb.velocity.x, Jumpforce));
+
+                DoubleJump = !DoubleJump;
+            }
+            
+        }
+
+        
     }
 
     private void FixedUpdate()
