@@ -25,18 +25,11 @@ public class BulletProjectile : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > 3)
+        if (timer > 2)
         {
             Destroy(gameObject);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision2D)
-    {
-        
-        if (collision2D.gameObject.name == "BossBody")
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 }
