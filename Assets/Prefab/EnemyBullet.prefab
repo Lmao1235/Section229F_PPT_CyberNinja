@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 35
+  Boom: {fileID: 5990075293940780282, guid: 3781d1502b5202141a96b82d6e804148, type: 3}
+  BoomPos: {fileID: 8642450931536588276}
 --- !u!50 &1750203671909153589
 Rigidbody2D:
   serializedVersion: 4

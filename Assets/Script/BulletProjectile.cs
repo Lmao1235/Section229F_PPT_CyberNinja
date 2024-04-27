@@ -8,6 +8,8 @@ public class BulletProjectile : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private float force;
     private float timer;
+    [SerializeField] GameObject Boom;
+    [SerializeField] Transform BoomPos;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,7 +29,9 @@ public class BulletProjectile : MonoBehaviour
 
         if (timer > 2)
         {
+            Instantiate(Boom, BoomPos.position, Quaternion.identity);
             Destroy(gameObject);
+           
         }
     }
 
