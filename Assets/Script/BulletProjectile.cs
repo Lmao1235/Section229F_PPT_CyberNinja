@@ -7,6 +7,7 @@ public class BulletProjectile : MonoBehaviour
     private GameObject Player;
     private Rigidbody2D rb;
     [SerializeField] private float force;
+    private float timer;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -14,11 +15,28 @@ public class BulletProjectile : MonoBehaviour
 
         Vector3 direction = Player.transform.position - transform.position;
         rb.velocity = new Vector2 (direction.x, direction.y).normalized * force;
+
+        float rota = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rota);
     }
 
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+
+        if (timer > 3)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision2D)
+    {
         
+        if (collision2D.gameObject.name == "BossBody")
+        {
+            Destroy(gameObject);
+        }
     }
 }
