@@ -19,15 +19,23 @@ public class EnemyProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-
         
 
-        if(timer > 1 )
+        float distance = Vector2.Distance(transform.position, Player.transform.position);
+        Debug.Log(distance);
+
+        if(distance < 10)
         {
-            timer = 0;
-            shoot();
+            timer += Time.deltaTime;
+
+            if (timer > 1)
+            {
+                timer = 0;
+                shoot();
+            }
         }
+
+        
     }
 
     void shoot()
