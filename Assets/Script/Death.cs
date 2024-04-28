@@ -8,7 +8,7 @@ public class Death : MonoBehaviour
     [SerializeField] private int SceneBuild;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "EnemyBullet(Clone)" || collision.gameObject.name == "Explosion(Clone)")
+        if (collision.gameObject.name == "EnemyBullet(Clone)" || collision.gameObject.name == "Explosion(Clone)" || collision.gameObject.name == "Lava")
         {
             SceneManager.LoadScene(SceneBuild, LoadSceneMode.Single);
         }

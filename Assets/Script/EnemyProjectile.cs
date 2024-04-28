@@ -24,11 +24,11 @@ public class EnemyProjectile : MonoBehaviour
         float distance = Vector2.Distance(transform.position, Player.transform.position);
         Debug.Log(distance);
 
-        if(distance < 10)
+        if(distance < 30)
         {
             timer += Time.deltaTime;
 
-            if (timer > 1)
+            if (timer > 1.5f)
             {
                 timer = 0;
                 shoot();
